@@ -1,10 +1,9 @@
 #include <stdio.h>
+#include <stdlib.h>
+#include <editline/readline.h>
 
 /* Lisplet semantic version */
 const char* version = "0.0.1";
-
-/* Input buffer */
-static char input[2048];
 
 /* Read, Evaluate, Print, Loop */
 void repl() {
@@ -12,10 +11,12 @@ void repl() {
   puts("Press Ctrl+C to exit\n");
 
   while(1) {
-    fputs("lisplet> ", stdout);
-    fgets(input, 2048, stdin);
+    char* input = readline("lisplet> ");
+    add_history(input);
 
-    printf("You input %s", input);
+    printf("You input %s\n", input);
+
+    free(input);
   }
 }
 
