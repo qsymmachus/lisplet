@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <editline/readline.h>
+#include "libraries/mpc.h"
 
 /* Lisplet semantic version */
 const char* version = "0.0.1";
